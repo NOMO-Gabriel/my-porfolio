@@ -1,16 +1,26 @@
-'use client'
-
 import Header from "@/app/components/Header";
-import {useTheme} from "@/app/utils/hooks/useTheme.js";
+import HomeSection from "@/app/components/HomeSection";
+import AboutSection from "@/app/components/AboutSection";
+import ServiceSection from "@/app/components/ServicesSection";
+import SkillsSection from "@/app/components/SkillsSection";
+import CertificationSection from "@/app/components/CertificationSection";
+import ContactSection from "@/app/components/ContactSection";
+import FooterSection from "@/app/components/FooterSection";
+import ProjectSection from "@/app/components/ProjectSection";
 
-export default function Home() {
-    const { theme } = useTheme();
+export default function page(){
 
-    const backgroundClass = theme === 'light' ? 'bg-gray-100' : 'bg-gray-800';
-    const textClass = theme === 'light' ? 'text-black' : 'text-white';
-  return (
-      <div className={`space-y-10 ${backgroundClass} ${textClass}`}>
-        <Header/>
-      </div>
-  );
+    return(
+        <div>
+            <Header/>
+            <HomeSection/>
+            <AboutSection/>
+            <ServiceSection/>
+            <SkillsSection/>
+            <CertificationSection/>
+            <ProjectSection/>
+            <ContactSection/>
+            <FooterSection/>
+        </div>
+    );
 }
