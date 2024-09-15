@@ -2,14 +2,20 @@
 import { useState, ChangeEvent, FormEvent } from "react";
 import { useTheme } from "@/app/utils/hooks/useTheme.js";
 import { useLocale } from "@/app/utils/hooks/useLocale.js";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faCopy} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCopy } from "@fortawesome/free-solid-svg-icons";
 
 export default function ContactSection() {
     const { theme } = useTheme();
     const { locale } = useLocale();
 
-    const [formData, setFormData] = useState({
+    const [formData, setFormData] = useState<{
+        fullName: string;
+        email: string;
+        mobileNumber: string;
+        subject: string;
+        message: string;
+    }>({
         fullName: "",
         email: "",
         mobileNumber: "",
@@ -17,10 +23,8 @@ export default function ContactSection() {
         message: "",
     });
 
-    const [copySuccess, setCopySuccess] = useState(false);
-    const [showEmail, setShowEmail] = useState(false);
+    const [showEmail, setShowEmail] = useState<boolean>(false);
 
-    // Reset form data
     const deleteData = () => {
         setFormData({
             fullName: "",
@@ -31,16 +35,14 @@ export default function ContactSection() {
         });
     };
 
-    // Handle changes to input fields
     const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
-        setFormData((prev) => ({
+        setFormData(prev => ({
             ...prev,
             [name]: value,
         }));
     };
 
-    // Handle form submission
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
@@ -57,26 +59,19 @@ export default function ContactSection() {
         deleteData();
     };
 
-    // Handle copy email to clipboard
     const handleCopyEmail = () => {
         navigator.clipboard.writeText('gabriel.nomo@facsciences-uy1.cm').then(() => {
-            setCopySuccess(true);
             setShowEmail(true);
             setTimeout(() => {
                 setShowEmail(false);
-                setCopySuccess(false);
             }, 3000);
         });
     };
 
-    // Define background colors and text colors based on the theme
     const background = theme === 'light' ? 'bg-gray-100' : 'bg-gray-600';
     const formBackground = theme === 'light' ? 'bg-white' : 'bg-gray-700';
     const textColor = theme === 'light' ? 'text-black' : 'text-white';
 
-
-
-    // Define labels based on the locale
     const labels = {
         fullName: locale === 'fr' ? "Nom Complet" : "Full Name",
         email: locale === 'fr' ? "Adresse Email" : "Email Address",
@@ -85,14 +80,14 @@ export default function ContactSection() {
         message: locale === 'fr' ? "Votre Message" : "Your Message",
         sendMessage: locale === 'fr' ? "Envoyer le Message" : "Send Message",
         contactMe: locale === 'fr' ? "Contactez" : "Contact",
-        copy: locale==='fr' ? 'Copier' : 'Copy',
+        copy: locale === 'fr' ? 'Copier' : 'Copy',
         emailCopied: locale === 'fr' ? "Email Copié!" : "Email Copied!"
     };
 
     return (
         <section className={`py-8 px-4 ${background} ${textColor} flex flex-col items-center justify-center`} id="contact">
-            <h2 className={`text-2xl font-semibold text-center mb-6 `}>
-                {labels.contactMe} <span >Me!</span>
+            <h2 className={`text-2xl font-semibold text-center mb-6`}>
+                {labels.contactMe} <span>Me!</span>
             </h2>
             <form onSubmit={handleSubmit} className={`max-w-lg mx-auto ${formBackground} p-6 rounded-lg shadow-md`}>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
@@ -155,7 +150,7 @@ export default function ContactSection() {
                     onClick={handleCopyEmail}
                     className="flex items-center justify-center mt-2 small-btn"
                 >
-                    <FontAwesomeIcon icon={faCopy}/>
+                    <FontAwesomeIcon icon={faCopy} />
                     {labels.copy}
                 </button>
                 {showEmail && <p className="mt-2 text-green-500">{labels.emailCopied}</p>}

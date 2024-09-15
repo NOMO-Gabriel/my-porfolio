@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from './utils/contexts/ThemeContext';
 import { LocaleProvider } from './utils/contexts/LocaleContext';
-import {useTheme} from "@/app/utils/hooks/useTheme.js";
+;
 
 export const metadata: Metadata = {
     title: 'MY PORTFOLIO',

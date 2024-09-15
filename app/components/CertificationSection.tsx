@@ -5,6 +5,19 @@ import { faFileDownload, faLink } from "@fortawesome/free-solid-svg-icons";
 import { useLocale } from "@/app/utils/hooks/useLocale.js";
 import { useTheme } from "@/app/utils/hooks/useTheme.js";
 
+type Certification = {
+    title: string;
+    issuer: string;
+    downloadLink: string;
+    referenceLink: string;
+    image: string;
+};
+
+type CertificationsContent = {
+    en: Certification[];
+    fr: Certification[];
+};
+
 export default function CertificationSection() {
     const { locale } = useLocale();
     const { theme } = useTheme();
@@ -12,7 +25,7 @@ export default function CertificationSection() {
     const secondBackgroundCertification = theme === 'light' ? 'bg-white' : 'bg-gray-600';
     const textClass = theme === 'light' ? 'text-black' : 'text-white';
 
-    const certificationsContent = {
+    const certificationsContent: CertificationsContent = {
         en: [
             {
                 title: 'C Programming Certification',
@@ -61,13 +74,16 @@ export default function CertificationSection() {
         ]
     };
 
+
+    const validLocale = locale === 'en' || locale === 'fr' ? locale : 'en';
+
     return (
         <section className={`certifications ${backgroundCertification} ${textClass} py-10 flex flex-col items-center justify-center`} id="certifications">
             <span className="heading mb-10 font-bold text-3xl text-center md:text-5xl">
-                {locale === 'en' ? 'Certifications' : 'Certifications'}
+                {validLocale === 'en' ? 'Certifications' : 'Certifications'}
             </span>
             <div className="certifications-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {certificationsContent[locale].map((certification, index) => (
+                {certificationsContent[validLocale].map((certification, index) => (
                     <div key={index} className={`certification-box p-4 rounded shadow-md ${secondBackgroundCertification}`}>
                         <Image
                             src={certification.image}
@@ -80,10 +96,10 @@ export default function CertificationSection() {
                         <p className="mt-1 text-sm text-orange-500">{certification.issuer}</p>
                         <div className="mt-4 flex gap-2">
                             <a href={certification.downloadLink} className="small-btn" target="_blank" rel="noopener noreferrer">
-                                <FontAwesomeIcon icon={faFileDownload}/> {locale === 'en' ? 'Download' : 'Télécharger'}
+                                <FontAwesomeIcon icon={faFileDownload}/> {validLocale === 'en' ? 'Download' : 'Télécharger'}
                             </a>
                             <a href={certification.referenceLink} className="small-btn" target="_blank" rel="noopener noreferrer">
-                                <FontAwesomeIcon icon={faLink}/> {locale === 'en' ? 'View Reference' : 'Voir Référence'}
+                                <FontAwesomeIcon icon={faLink}/> {validLocale === 'en' ? 'View Reference' : 'Voir Référence'}
                             </a>
                         </div>
                     </div>

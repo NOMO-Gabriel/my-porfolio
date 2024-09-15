@@ -7,14 +7,22 @@ import Link from "next/link";
 import { useLocale } from "@/app/utils/hooks/useLocale.js";
 import { useTheme } from "@/app/utils/hooks/useTheme.js";
 
+interface Project {
+    title: string;
+    description: string;
+    image: string;
+    link: string;
+}
+
 export default function ProjectSection() {
     const { locale } = useLocale();
     const { theme } = useTheme();
+
     const backgroundClass = theme === 'light' ? 'bg-gray-200' : 'bg-gray-800';
     const textClass = theme === 'light' ? 'text-black' : 'text-white';
     const projectBoxClass = theme === 'light' ? 'bg-white shadow-lg' : 'bg-gray-700 shadow-lg';
 
-    const projectsContent = {
+    const projectsContent: Record<string, Project[]> = {
         en: [
             { title: 'Snake Game', description: 'Classic snake game implemented in JavaScript', image: '/images/snake-demo.gif', link: 'https://github.com/NOMO-Gabriel/Snake-Game-In-Javascript/tree/main' },
             { title: 'Blog Website', description: 'A site for a company to present its services and provide a blog to answer client questions', image: '/images/blog-image.png', link: 'https://github.com/NOMO-Gabriel/Blog' },
@@ -40,7 +48,7 @@ export default function ProjectSection() {
             </h2>
             <div className="project-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4 max-w-7xl mx-auto">
                 {projectsContent[locale].map((project, index) => (
-                    <div key={index} className={`project-box p-6 rounded-lg ${projectBoxClass} transition transform hover:scale-105`}>
+                    <div key={index} className={`project-box p-6 rounded-lg ${projectBoxClass} transition-transform hover:scale-105`}>
                         <Image
                             src={project.image}
                             alt={`project-${index + 1}`}
@@ -51,7 +59,7 @@ export default function ProjectSection() {
                         <h4 className="text-2xl font-semibold mb-2">{project.title}</h4>
                         <p className="text-base mb-4">{project.description}</p>
                         <Link href={project.link} className="small-btn">
-                                <FontAwesomeIcon icon={faExternalLink} className="mr-2" /> {locale === 'en' ? 'View Project' : 'Voir le Projet'}
+                            <FontAwesomeIcon icon={faExternalLink} className="mr-2" /> {locale === 'en' ? 'View Project' : 'Voir le Projet'}
                         </Link>
                     </div>
                 ))}
