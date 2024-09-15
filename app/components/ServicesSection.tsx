@@ -18,6 +18,7 @@ export default function ServiceSection() {
     const { theme } = useTheme();
     const secondBackgroundService  = theme === 'light' ? 'bg-gray-200' : 'bg-gray-600';
     const  backgroundService = theme === 'light' ? 'bg-gray-100' : 'bg-gray-800';
+    const textClass = theme === 'light'? 'text-dark':'text-white'
 
     const servicesContent = {
         en: [
@@ -26,7 +27,7 @@ export default function ServiceSection() {
             { icon: faMobileAlt, title: 'Mobile Development', description: 'Development of mobile applications for iOS and Android platforms.' },
             { icon: faRobot, title: 'Artificial Intelligence', description: 'AI solutions to enhance your business with machine learning and automation.' },
             { icon: faDesktop, title: 'Desktop Applications', description: 'Creation of desktop applications with user-friendly interfaces and powerful functionality.' },
-            { icon: faChartBar, title: 'Website Design', description: 'Comprehensive web design services for engaging and user-friendly websites.' }
+
         ],
         fr: [
             { icon: faCode, title: 'Création de Sites Web', description: 'Conception,Création et développement de sites web responsives et dynamiques adaptés à vos besoins.' },
@@ -39,7 +40,7 @@ export default function ServiceSection() {
     };
 
     return (
-        <section className={`services flex items-center justify-center flex-col ${backgroundService}`} id="services">
+        <section className={`services flex items-center justify-center flex-col ${backgroundService} ${textClass}`} id="services">
             <h2 className="heading mb-20 font-bold text-5xl">
                 {locale === 'en' ? 'My' : 'Mes'} <span>Services</span>
             </h2>

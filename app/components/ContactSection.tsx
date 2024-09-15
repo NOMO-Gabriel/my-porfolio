@@ -70,9 +70,11 @@ export default function ContactSection() {
     };
 
     // Define background colors and text colors based on the theme
-    const background = theme === 'light' ? 'bg-gray-200' : 'bg-gray-800';
+    const background = theme === 'light' ? 'bg-gray-100' : 'bg-gray-600';
     const formBackground = theme === 'light' ? 'bg-white' : 'bg-gray-700';
     const textColor = theme === 'light' ? 'text-black' : 'text-white';
+
+
 
     // Define labels based on the locale
     const labels = {
@@ -151,7 +153,7 @@ export default function ContactSection() {
                 <p>{locale === 'fr' ? "Si vous avez un problème, prenez mon adresse email:" : "If you have a problem, take my email address:"}</p>
                 <button
                     onClick={handleCopyEmail}
-                    className="flex items-center justify-center mt-2 text-blue-500 hover:text-blue-700 transition duration-300"
+                    className="flex items-center justify-center mt-2 small-btn"
                 >
                     <FontAwesomeIcon icon={faCopy}/>
                     {labels.copy}

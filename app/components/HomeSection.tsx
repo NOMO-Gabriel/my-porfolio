@@ -19,14 +19,14 @@ const HomeSection = () => {
         name: 'Gabriel Nomo',
         firstPresentation: 'And I\'m a',
         presentation: 'Software Engineering Student',
-        body: 'I am studying at the National School of Engineering in Yaoundé, where I am currently in my 4th year of Computer Engineering.',
+        body: "Holder of a bachelor's degree in mathematics, I am continuing my studies at the National Advanced School of Engineering of Yaoundé, where I am currently in my 4th year of Computer Engineering.",
         download:'Download CV'
     } : {
         greetings: "Salut, c'est moi",
         name: 'Gabriel Nomo',
         firstPresentation: 'Je suis un',
         presentation: 'Élève ingénieur en informatique',
-        body: "Je poursuis mes études à l'École Nationale Supérieure Polytechnique de Yaoundé, où je suis actuellement en 4e année de Génie Informatique." ,
+        body: "Titulaire d'une licence en mathématiques, Je poursuis mes études à l'École Nationale Supérieure Polytechnique de Yaoundé, où je suis actuellement en 4e année de Génie Informatique." ,
         download: 'Télécharger mon CV'
     };
 
@@ -39,9 +39,9 @@ const HomeSection = () => {
                 <h3 className={'mb-7'}>{content.firstPresentation} <span>{content.presentation}</span></h3>
                 <p>{content.body}</p>
                 <div className="social-media">
-                    <Link href="#"><FontAwesomeIcon icon={faLinkedin}/></Link>
-                    <Link href="#"><FontAwesomeIcon icon={faGithub}/></Link>
-                    <Link href="#"><FontAwesomeIcon icon={faEnvelope}/></Link>
+                    <Link href="https://www.linkedin.com/in/nomo-bodianga-gabriel-nasaire-junior-255b27293"><FontAwesomeIcon icon={faLinkedin}/></Link>
+                    <Link href="https://github.com/NOMO-Gabriel"><FontAwesomeIcon icon={faGithub}/></Link>
+                    <Link href="mailto:gabriel.nomo@facsciences-uy1.cm"><FontAwesomeIcon icon={faEnvelope}/></Link>
                 </div>
                 <Link href="/CvNomoGabriel.pdf" className="btn">{content.download}</Link>
             </div>

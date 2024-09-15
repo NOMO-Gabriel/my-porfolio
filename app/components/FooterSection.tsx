@@ -13,7 +13,7 @@ export default function FooterSection() {
                 Copyright &copy; 2024 {locale === 'en' ? 'by' : 'par'} Nomo Gabriel | {locale === 'en' ? 'All Rights Reserved' : 'Tous droits réservés'}.
             </p>
             <Link href={"#home"}>
-                <FontAwesomeIcon icon={faArrowUp} className="text-xl hover:text-blue-400 transition-transform duration-300 transform hover:scale-110" />
+                <FontAwesomeIcon icon={faArrowUp} className="text-xl small-btn" />
             </Link>
         </footer>
     );

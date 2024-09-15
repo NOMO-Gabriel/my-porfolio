@@ -10,54 +10,53 @@ export default function CertificationSection() {
     const { theme } = useTheme();
     const backgroundCertification = theme === 'light' ? 'bg-gray-100' : 'bg-gray-900';
     const secondBackgroundCertification = theme === 'light' ? 'bg-white' : 'bg-gray-600';
-
     const textClass = theme === 'light' ? 'text-black' : 'text-white';
 
     const certificationsContent = {
         en: [
             {
                 title: 'C Programming Certification',
-                issuer: 'Example Institute',
-                downloadLink: '#',
-                referenceLink: '#',
-                image: '/images/c-programming-certification.png' // Add image URL
+                issuer: 'Dartmouth College',
+                downloadLink: '/c-programming-certification.pdf',
+                referenceLink: 'https://www.coursera.org/account/accomplishments/verify/83JHP7MM86LS',
+                image: '/images/c-programming-certification.png'
             },
             {
                 title: 'Java Programming Certification',
-                issuer: 'Tech Academy',
-                downloadLink: '#',
-                referenceLink: '#',
-                image: '/images/java-programming-certification.png' // Add image URL
+                issuer: 'École Polytechnique Fédérale de Lausanne',
+                downloadLink: '/java-programming-certification.pdf',
+                referenceLink: 'https://www.coursera.org/account/accomplishments/verify/V552L4DBZZP9',
+                image: '/images/java-programming-certification.png'
             },
             {
-                title: 'HTML & CSS Certification',
-                issuer: 'Web School',
-                downloadLink: '#',
-                referenceLink: '#',
-                image: '/images/html-css-certification.png' // Add image URL
+                title: 'Introduction to Web Development',
+                issuer: 'University of California, Davis',
+                downloadLink: '/html-css-certification.pdf',
+                referenceLink: 'https://www.coursera.org/account/accomplishments/verify/6Z8SXCFPJFJ6',
+                image: '/images/html-css-certification.png'
             }
         ],
         fr: [
             {
                 title: 'Certification en Programmation C',
-                issuer: 'Institut Exemple',
-                downloadLink: '#',
-                referenceLink: '#',
-                image: '/images/c-programming-certification.png' // Add image URL
+                issuer: 'Dartmouth College',
+                downloadLink: '/c-programming-certification.pdf',
+                referenceLink: 'https://www.coursera.org/account/accomplishments/verify/83JHP7MM86LS',
+                image: '/images/c-programming-certification.png'
             },
             {
                 title: 'Certification en Programmation Java',
-                issuer: 'Académie Tech',
-                downloadLink: '#',
-                referenceLink: '#',
-                image: '/images/java-programming-certification.png' // Add image URL
+                issuer: 'École Polytechnique Fédérale de Lausanne',
+                downloadLink: '/java-programming-certification.pdf',
+                referenceLink: 'https://www.coursera.org/account/accomplishments/verify/V552L4DBZZP9',
+                image: '/images/java-programming-certification.png'
             },
             {
-                title: 'Certification en HTML & CSS',
-                issuer: 'École Web',
-                downloadLink: '#',
-                referenceLink: '#',
-                image: '/images/html-css-certification.png' // Add image URL
+                title: 'Introduction au Développement Web',
+                issuer: 'Université de Californie, Davis',
+                downloadLink: '/html-css-certification.pdf',
+                referenceLink: 'https://www.coursera.org/account/accomplishments/verify/6Z8SXCFPJFJ6',
+                image: '/images/html-css-certification.png'
             }
         ]
     };
@@ -78,13 +77,13 @@ export default function CertificationSection() {
                             className="w-full h-32 object-cover rounded mb-4"
                         />
                         <h3 className="text-xl font-semibold">{certification.title}</h3>
-                        <p className="mt-1 text-sm text-gray-500">{certification.issuer}</p>
+                        <p className="mt-1 text-sm text-orange-500">{certification.issuer}</p>
                         <div className="mt-4 flex gap-2">
                             <a href={certification.downloadLink} className="small-btn" target="_blank" rel="noopener noreferrer">
-                                <FontAwesomeIcon icon={faFileDownload}/> Download
+                                <FontAwesomeIcon icon={faFileDownload}/> {locale === 'en' ? 'Download' : 'Télécharger'}
                             </a>
                             <a href={certification.referenceLink} className="small-btn" target="_blank" rel="noopener noreferrer">
-                                <FontAwesomeIcon icon={faLink}/> View Reference
+                                <FontAwesomeIcon icon={faLink}/> {locale === 'en' ? 'View Reference' : 'Voir Référence'}
                             </a>
                         </div>
                     </div>
