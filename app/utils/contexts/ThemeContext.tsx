@@ -11,7 +11,7 @@ interface ThemeContextProps {
 export const ThemeContext = createContext<ThemeContextProps | undefined>(undefined);
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
-    const [theme, setTheme] = useState<string>('light');
+    const [theme, setTheme] = useState<string>('dark');
 
 
     useEffect(() => {
