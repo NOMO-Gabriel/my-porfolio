@@ -27,6 +27,7 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
     };
 
     return (
+
         <ThemeContext.Provider value={{ theme, changeTheme }}>
             {children}
         </ThemeContext.Provider>
