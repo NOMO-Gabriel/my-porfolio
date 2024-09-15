@@ -5,8 +5,8 @@ import { LocaleProvider } from './utils/contexts/LocaleContext';
 ;
 
 export const metadata: Metadata = {
-    title: 'MY PORTFOLIO',
-    description: 'A SIMPLE WEBSITE DESCRIBING MY ACHIEVEMENTS',
+    title: 'Portfolio | Nomo-Gabriel',
+    description: 'A Simple Website describing my achievements',
 };
 
 export default function RootLayout({

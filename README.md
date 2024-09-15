@@ -9,8 +9,8 @@ This is my personal portfolio built with **Next.js**, showcasing my projects, sk
 
 ## 🌐 Live Preview
 
-Check it out live here: [Portfolio Live](#)  
-*link is not disponible st this moment*
+Check it out live here: [Portfolio Live](#https://my-porfolio-git-main-nomo-gabriel-s-projects.vercel.app/)  
+
 
 ## 🚀 Features
 
