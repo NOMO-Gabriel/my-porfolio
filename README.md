@@ -65,15 +65,15 @@ Follow these steps to run the portfolio locally:
 
 To build the app for production:
 
-    ```bash
+   
     npm run build
-    ```
+ 
 
 Once built, you can serve it locally with:
 
-     ```bash
+   
         npm start
-        ```
+     
 
 ## 📝 License
 
